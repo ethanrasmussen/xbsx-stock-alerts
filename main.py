@@ -27,12 +27,12 @@ while True:
                 th.send_text(th.create_phone_email(user, user['carrier']), 'Item in stock!', text_msg)
         index += 1
 
-    # check target on a per-user basis (as it requires zip code)
+    # check Target on a per-user basis (as it requires zip code)
     with open('users.json', 'r') as fp:
         users = json.load(fp)
     for user in users:
         if sc.check_tgt(urls['target'], user['zip']) is True:
-            text_msg = f"Good news! {item_name} appears to be in stock at your local target. Here's the URL: {urls['target']}"
+            text_msg = f"Good news! {item_name} appears to be in stock at your local Target. Here's the URL: {urls['target']}"
             th.send_text(th.create_phone_email(user, user['carrier']), 'Item in stock!', text_msg)
 
     # set random sleep time between 3min & 15min, to avoid spamming sites
